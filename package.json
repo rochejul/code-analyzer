@@ -16,7 +16,7 @@
     "bump:patch:beta": "npm run bumping -- --increment patch --preid beta",
     "bump:prerelease:beta": "npm run bumping -- --increment prerelease --preid beta",
     "bumping": "node ./node_modules/npmversion/bin/npmversion",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./node_modules/jest/bin/jest.js --config jest-config.json"
   },
   "keywords": [
     "code quality",
@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "eslint": "4.19.1",
+    "jest": "22.4.3",
     "npmversion": "1.6.2"
   }
 }
