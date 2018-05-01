@@ -1,0 +1,12 @@
+{
+    "parser": "espree",
+    "extends": "eslint:recommended",
+    "plugins": [
+        "node",
+        "promise"
+    ],
+    "env": {
+        "node": true,
+        "es6": true
+    }
+}

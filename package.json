@@ -1,0 +1,43 @@
+{
+  "name": "code-analyzer",
+  "version": "0.0.1",
+  "description": "Tool to provide a static code analyzing of your application, based on standard or classical linter configuration",
+  "main": "./lib/index.js",
+  "files": [
+    "./lib"
+  ],
+  "scripts": {
+    "bump:release": "npm run bumping -- --unpreid --git-create-branch",
+    "bump:major": "npm run bumping -- --increment major",
+    "bump:minor": "npm run bumping -- --increment minor",
+    "bump:patch": "npm run bumping -- --increment patch",
+    "bump:major:beta": "npm run bumping -- --increment major --preid beta",
+    "bump:minor:beta": "npm run bumping -- --increment minor --preid beta",
+    "bump:patch:beta": "npm run bumping -- --increment patch --preid beta",
+    "bump:prerelease:beta": "npm run bumping -- --increment prerelease --preid beta",
+    "bumping": "node ./node_modules/npmversion/bin/npmversion",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "code quality",
+    "analyzer"
+  ],
+  "author": "Julien Roche",
+  "homepage": "https://github.com/rochejul/code-analyzer#README",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rochejul/code-analyzer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rochejul/code-analyzer/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "4.19.1",
+    "npmversion": "1.6.2"
+  }
+}
