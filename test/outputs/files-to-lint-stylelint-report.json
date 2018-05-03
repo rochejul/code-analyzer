@@ -1,0 +1,525 @@
+{
+    "errored": true,
+    "output": "[{\"source\":\"C:\\\\Dev\\\\Git\\\\Github\\\\code-analyzer\\\\test\\\\files-to-lint\\\\sample.less\",\"deprecations\":[],\"invalidOptionWarnings\":[],\"parseErrors\":[],\"errored\":true,\"warnings\":[{\"line\":2,\"column\":25,\"rule\":\"block-opening-
+    brace-space-before\",\"severity\":\"error\",\"text\":\"Expected single space before \\\"{\\\" (block-opening-brace-space-before)\"},{\"line\":5,\"column\":8,\"rule\":\"declaration-empty-line-before\",\"severity\":\"error\",\"text\":\"Unexpected empty line before de
+    claration (declaration-empty-line-before)\"},{\"line\":3,\"column\":5,\"rule\":\"indentation\",\"severity\":\"error\",\"text\":\"Expected indentation of 2 spaces (indentation)\"},{\"line\":5,\"column\":8,\"rule\":\"indentation\",\"severity\":\"error\",\"text\":\"Ex
+    pected indentation of 2 spaces (indentation)\"},{\"line\":2,\"column\":10,\"rule\":\"selector-list-comma-newline-after\",\"severity\":\"error\",\"text\":\"Expected newline after \\\",\\\" (selector-list-comma-newline-after)\"}]}]",
+    "results": [
+        {
+            "source": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less",
+            "deprecations": [],
+            "invalidOptionWarnings": [],
+            "parseErrors": [],
+            "errored": true,
+            "warnings": [
+                {
+                    "line": 2,
+                    "column": 25,
+                    "rule": "block-opening-brace-space-before",
+                    "severity": "error",
+                    "text": "Expected single space before \"{\" (block-opening-brace-space-before)"
+                },
+                {
+                    "line": 5,
+                    "column": 8,
+                    "rule": "declaration-empty-line-before",
+                    "severity": "error",
+                    "text": "Unexpected empty line before declaration (declaration-empty-line-before)"
+                },
+                {
+                    "line": 3,
+                    "column": 5,
+                    "rule": "indentation",
+                    "severity": "error",
+                    "text": "Expected indentation of 2 spaces (indentation)"
+                },
+                {
+                    "line": 5,
+                    "column": 8,
+                    "rule": "indentation",
+                    "severity": "error",
+                    "text": "Expected indentation of 2 spaces (indentation)"
+                },
+                {
+                    "line": 2,
+                    "column": 10,
+                    "rule": "selector-list-comma-newline-after",
+                    "severity": "error",
+                    "text": "Expected newline after \",\" (selector-list-comma-newline-after)"
+                }
+            ],
+            "_postcssResult": {
+                "processor": {
+                    "version": "6.0.22",
+                    "plugins": []
+                },
+                "messages": [
+                    {
+                        "type": "warning",
+                        "text": "Expected single space before \"{\" (block-opening-brace-space-before)",
+                        "line": 2,
+                        "column": 25,
+                        "severity": "error",
+                        "rule": "block-opening-brace-space-before",
+                        "node": {
+                            "raws": {
+                                "before": "\n",
+                                "between": "",
+                                "semicolon": true,
+                                "after": "\n"
+                            },
+                            "type": "rule",
+                            "nodes": [
+                                {
+                                    "raws": {
+                                        "before": "\n    ",
+                                        "between": ": "
+                                    },
+                                    "type": "decl",
+                                    "source": {
+                                        "start": {
+                                            "line": 3,
+                                            "column": 5
+                                        },
+                                        "input": {
+                                            "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                            "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "column": 16
+                                        }
+                                    },
+                                    "prop": "color",
+                                    "value": "#eee"
+                                },
+                                {
+                                    "raws": {
+                                        "before": "\n\n       ",
+                                        "between": ": "
+                                    },
+                                    "type": "decl",
+                                    "source": {
+                                        "start": {
+                                            "line": 5,
+                                            "column": 8
+                                        },
+                                        "input": {
+                                            "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                            "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "column": 32
+                                        }
+                                    },
+                                    "prop": "background-color",
+                                    "value": "purple"
+                                }
+                            ],
+                            "source": {
+                                "start": {
+                                    "line": 2,
+                                    "column": 1
+                                },
+                                "input": {
+                                    "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                    "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                },
+                                "end": {
+                                    "line": 6,
+                                    "column": 1
+                                }
+                            },
+                            "selector": ".my-class, .another-class",
+                            "lastEach": 113,
+                            "indexes": {}
+                        },
+                        "index": 24
+                    },
+                    {
+                        "type": "warning",
+                        "text": "Unexpected empty line before declaration (declaration-empty-line-before)",
+                        "line": 5,
+                        "column": 8,
+                        "severity": "error",
+                        "rule": "declaration-empty-line-before",
+                        "node": {
+                            "raws": {
+                                "before": "\n\n       ",
+                                "between": ": "
+                            },
+                            "type": "decl",
+                            "source": {
+                                "start": {
+                                    "line": 5,
+                                    "column": 8
+                                },
+                                "input": {
+                                    "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                    "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "column": 32
+                                }
+                            },
+                            "prop": "background-color",
+                            "value": "purple"
+                        }
+                    },
+                    {
+                        "type": "warning",
+                        "text": "Expected indentation of 2 spaces (indentation)",
+                        "line": 3,
+                        "column": 5,
+                        "severity": "error",
+                        "rule": "indentation",
+                        "node": {
+                            "raws": {
+                                "before": "\n    ",
+                                "between": ": "
+                            },
+                            "type": "decl",
+                            "source": {
+                                "start": {
+                                    "line": 3,
+                                    "column": 5
+                                },
+                                "input": {
+                                    "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                    "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                },
+                                "end": {
+                                    "line": 3,
+                                    "column": 16
+                                }
+                            },
+                            "prop": "color",
+                            "value": "#eee"
+                        }
+                    },
+                    {
+                        "type": "warning",
+                        "text": "Expected indentation of 2 spaces (indentation)",
+                        "line": 5,
+                        "column": 8,
+                        "severity": "error",
+                        "rule": "indentation",
+                        "node": {
+                            "raws": {
+                                "before": "\n\n       ",
+                                "between": ": "
+                            },
+                            "type": "decl",
+                            "source": {
+                                "start": {
+                                    "line": 5,
+                                    "column": 8
+                                },
+                                "input": {
+                                    "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                    "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "column": 32
+                                }
+                            },
+                            "prop": "background-color",
+                            "value": "purple"
+                        }
+                    },
+                    {
+                        "type": "warning",
+                        "text": "Expected newline after \",\" (selector-list-comma-newline-after)",
+                        "line": 2,
+                        "column": 10,
+                        "severity": "error",
+                        "rule": "selector-list-comma-newline-after",
+                        "node": {
+                            "raws": {
+                                "before": "\n",
+                                "between": "",
+                                "semicolon": true,
+                                "after": "\n"
+                            },
+                            "type": "rule",
+                            "nodes": [
+                                {
+                                    "raws": {
+                                        "before": "\n    ",
+                                        "between": ": "
+                                    },
+                                    "type": "decl",
+                                    "source": {
+                                        "start": {
+                                            "line": 3,
+                                            "column": 5
+                                        },
+                                        "input": {
+                                            "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                            "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "column": 16
+                                        }
+                                    },
+                                    "prop": "color",
+                                    "value": "#eee"
+                                },
+                                {
+                                    "raws": {
+                                        "before": "\n\n       ",
+                                        "between": ": "
+                                    },
+                                    "type": "decl",
+                                    "source": {
+                                        "start": {
+                                            "line": 5,
+                                            "column": 8
+                                        },
+                                        "input": {
+                                            "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                            "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "column": 32
+                                        }
+                                    },
+                                    "prop": "background-color",
+                                    "value": "purple"
+                                }
+                            ],
+                            "source": {
+                                "start": {
+                                    "line": 2,
+                                    "column": 1
+                                },
+                                "input": {
+                                    "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                    "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                },
+                                "end": {
+                                    "line": 6,
+                                    "column": 1
+                                }
+                            },
+                            "selector": ".my-class, .another-class",
+                            "lastEach": 113,
+                            "indexes": {}
+                        },
+                        "index": 9
+                    }
+                ],
+                "root": {
+                    "raws": {
+                        "semicolon": false,
+                        "after": "\n"
+                    },
+                    "type": "root",
+                    "nodes": [
+                        {
+                            "raws": {
+                                "before": "\n",
+                                "between": "",
+                                "semicolon": true,
+                                "after": "\n"
+                            },
+                            "type": "rule",
+                            "nodes": [
+                                {
+                                    "raws": {
+                                        "before": "\n    ",
+                                        "between": ": "
+                                    },
+                                    "type": "decl",
+                                    "source": {
+                                        "start": {
+                                            "line": 3,
+                                            "column": 5
+                                        },
+                                        "input": {
+                                            "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                            "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "column": 16
+                                        }
+                                    },
+                                    "prop": "color",
+                                    "value": "#eee"
+                                },
+                                {
+                                    "raws": {
+                                        "before": "\n\n       ",
+                                        "between": ": "
+                                    },
+                                    "type": "decl",
+                                    "source": {
+                                        "start": {
+                                            "line": 5,
+                                            "column": 8
+                                        },
+                                        "input": {
+                                            "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                            "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "column": 32
+                                        }
+                                    },
+                                    "prop": "background-color",
+                                    "value": "purple"
+                                }
+                            ],
+                            "source": {
+                                "start": {
+                                    "line": 2,
+                                    "column": 1
+                                },
+                                "input": {
+                                    "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                                    "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                                },
+                                "end": {
+                                    "line": 6,
+                                    "column": 1
+                                }
+                            },
+                            "selector": ".my-class, .another-class",
+                            "lastEach": 113,
+                            "indexes": {}
+                        }
+                    ],
+                    "source": {
+                        "input": {
+                            "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                            "file": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less"
+                        },
+                        "start": {
+                            "line": 1,
+                            "column": 1
+                        }
+                    },
+                    "lastEach": 112,
+                    "indexes": {}
+                },
+                "opts": {
+                    "from": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less",
+                    "syntax": {}
+                },
+                "css": "\n.my-class, .another-class{\n    color: #eee;\n\n       background-color: purple;\n}\n",
+                "stylelint": {
+                    "ruleSeverities": {
+                        "at-rule-empty-line-before": "error",
+                        "at-rule-name-case": "error",
+                        "at-rule-name-space-after": "error",
+                        "at-rule-semicolon-newline-after": "error",
+                        "block-closing-brace-empty-line-before": "error",
+                        "block-closing-brace-newline-after": "error",
+                        "block-closing-brace-newline-before": "error",
+                        "block-closing-brace-space-before": "error",
+                        "block-opening-brace-newline-after": "error",
+                        "block-opening-brace-space-after": "error",
+                        "block-opening-brace-space-before": "error",
+                        "color-hex-case": "error",
+                        "color-hex-length": "error",
+                        "comment-empty-line-before": "error",
+                        "comment-whitespace-inside": "error",
+                        "custom-property-empty-line-before": "error",
+                        "declaration-bang-space-after": "error",
+                        "declaration-bang-space-before": "error",
+                        "declaration-block-semicolon-newline-after": "error",
+                        "declaration-block-semicolon-space-after": "error",
+                        "declaration-block-semicolon-space-before": "error",
+                        "declaration-block-single-line-max-declarations": "error",
+                        "declaration-block-trailing-semicolon": "error",
+                        "declaration-colon-newline-after": "error",
+                        "declaration-colon-space-after": "error",
+                        "declaration-colon-space-before": "error",
+                        "declaration-empty-line-before": "error",
+                        "function-comma-newline-after": "error",
+                        "function-comma-space-after": "error",
+                        "function-comma-space-before": "error",
+                        "function-max-empty-lines": "error",
+                        "function-name-case": "error",
+                        "function-parentheses-newline-inside": "error",
+                        "function-parentheses-space-inside": "error",
+                        "function-whitespace-after": "error",
+                        "indentation": "error",
+                        "length-zero-no-unit": "error",
+                        "max-empty-lines": "error",
+                        "media-feature-colon-space-after": "error",
+                        "media-feature-colon-space-before": "error",
+                        "media-feature-name-case": "error",
+                        "media-feature-parentheses-space-inside": "error",
+                        "media-feature-range-operator-space-after": "error",
+                        "media-feature-range-operator-space-before": "error",
+                        "media-query-list-comma-newline-after": "error",
+                        "media-query-list-comma-space-after": "error",
+                        "media-query-list-comma-space-before": "error",
+                        "no-eol-whitespace": "error",
+                        "no-missing-end-of-source-newline": "error",
+                        "number-leading-zero": "error",
+                        "number-no-trailing-zeros": "error",
+                        "property-case": "error",
+                        "rule-empty-line-before": "error",
+                        "selector-attribute-brackets-space-inside": "error",
+                        "selector-attribute-operator-space-after": "error",
+                        "selector-attribute-operator-space-before": "error",
+                        "selector-combinator-space-after": "error",
+                        "selector-combinator-space-before": "error",
+                        "selector-descendant-combinator-no-non-space": "error",
+                        "selector-list-comma-newline-after": "error",
+                        "selector-list-comma-space-before": "error",
+                        "selector-max-empty-lines": "error",
+                        "selector-pseudo-class-case": "error",
+                        "selector-pseudo-class-parentheses-space-inside": "error",
+                        "selector-pseudo-element-case": "error",
+                        "selector-pseudo-element-colon-notation": "error",
+                        "selector-type-case": "error",
+                        "unit-case": "error",
+                        "value-list-comma-newline-after": "error",
+                        "value-list-comma-space-after": "error",
+                        "value-list-comma-space-before": "error",
+                        "value-list-max-empty-lines": "error",
+                        "at-rule-no-unknown": "error",
+                        "block-no-empty": "error",
+                        "color-no-invalid-hex": "error",
+                        "comment-no-empty": "error",
+                        "declaration-block-no-duplicate-properties": "error",
+                        "declaration-block-no-shorthand-property-overrides": "error",
+                        "font-family-no-duplicate-names": "error",
+                        "font-family-no-missing-generic-family-keyword": "error",
+                        "function-calc-no-unspaced-operator": "error",
+                        "function-linear-gradient-no-nonstandard-direction": "error",
+                        "keyframe-declaration-no-important": "error",
+                        "media-feature-name-no-unknown": "error",
+                        "no-descending-specificity": "error",
+                        "no-duplicate-at-import-rules": "error",
+                        "no-duplicate-selectors": "error",
+                        "no-empty-source": "error",
+                        "no-extra-semicolons": "error",
+                        "no-invalid-double-slash-comments": "error",
+                        "property-no-unknown": "error",
+                        "selector-pseudo-class-no-unknown": "error",
+                        "selector-pseudo-element-no-unknown": "error",
+                        "selector-type-no-unknown": "error",
+                        "string-no-newline": "error",
+                        "unit-no-unknown": "error"
+                    },
+                    "customMessages": {},
+                    "disabledRanges": {
+                        "all": []
+                    },
+                    "stylelintError": true
+                }
+            }
+        }
+    ]
+}
