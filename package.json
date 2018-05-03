@@ -46,6 +46,7 @@
     "count-lines-in-file": "1.1.0",
     "eslint": "4.19.1",
     "eslint-config-eslint": "4.0.0",
-    "eslint-plugin-node": "6.0.1"
+    "eslint-plugin-node": "6.0.1",
+    "winston": "2.4.2"
   }
 }
