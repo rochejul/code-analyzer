@@ -4,8 +4,12 @@
   "description": "Tool to provide a static code analyzing of your application, based on standard or classical linter configuration",
   "main": "./lib/index.js",
   "files": [
+    "./bin",
     "./lib"
   ],
+  "bin": {
+    "code-analyzer": "./bin/code-analyzer"
+  },
   "scripts": {
     "bump:release": "npm run bumping -- --unpreid --git-create-branch",
     "bump:major": "npm run bumping -- --increment major",
@@ -16,7 +20,7 @@
     "bump:patch:beta": "npm run bumping -- --increment patch --preid beta",
     "bump:prerelease:beta": "npm run bumping -- --increment prerelease --preid beta",
     "bumping": "node ./node_modules/npmversion/bin/npmversion",
-    "start": "node ./lib/index.js",
+    "start": "node ./bin/code-analyzer",
     "test": "node ./node_modules/jest/bin/jest.js --config jest-config.json"
   },
   "keywords": [

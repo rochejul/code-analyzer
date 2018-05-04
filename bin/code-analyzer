@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const codeAnalyzer = require('../lib');
+const Logger = require('../lib/logger');
+const FileUtis = require('../lib/utils/file');
+
+let cwd = process.cwd();
+
+if (FileUtis.hasPackageJsonFile(cwd)) {
+    codeAnalyzer({ cwd, 'baseDirectories': ['lib', 'app'] })
+        .catch((err) => {
+            Logger.error('An error occured');
+            Logger.error(err);
+            process.exit(1);
+        });
+
+} else {
+    Logger.error('Sorry, but package.json file was detected');
+    Logger.error('For more details, please do codeanalyzer --help');
+}
+
+Logger.info('Welcome to the cli :)');
+
+
