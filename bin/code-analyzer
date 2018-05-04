@@ -2,6 +2,12 @@
 
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
+
+const meow = require('meow');
+const inquirer = require('inquirer');
+
 const codeAnalyzer = require('../lib');
 const Logger = require('../lib/logger');
 const FileUtis = require('../lib/utils/file');
@@ -9,18 +15,58 @@ const FileUtis = require('../lib/utils/file');
 let cwd = process.cwd();
 
 if (FileUtis.hasPackageJsonFile(cwd)) {
-    codeAnalyzer({ cwd, 'baseDirectories': ['lib', 'app'] })
-        .catch((err) => {
-            Logger.error('An error occured');
-            Logger.error(err);
-            process.exit(1);
-        });
+    const cli = meow(
+        fs.readFileSync(path.resolve(path.join(__dirname, './resources/help.txt'))).toString(),
+        {
+            'flags': {
+                'init': {
+                    'type': 'boolean',
+                    'alias': 'i'
+                }
+            }
+        }
+    );
+
+    if (cli.flags.init) {
+        // Use of inquirer
+        const possibleDirectories = FileUtis.getBaseDirectories(cwd);
+
+        inquirer
+            .prompt([
+                {
+                    'type': 'checkbox',
+                    'name': 'baseDirectories',
+                    'message': 'Please choose on which folder(s) do you want to run your code analyzing',
+                    'choices': possibleDirectories.map(folderName => {
+                        return {
+                            'name': folderName,
+                            'checked': false
+                        };
+                    }),
+                    'validate': function (inputs) {
+                        return !!(inputs && inputs.length > 0);
+                    }
+                }
+            ])
+            .then(options => codeAnalyzer({ cwd, 'baseDirectories': options.baseDirectories }))
+            .catch((err) => {
+                Logger.error('An error occured');
+                Logger.error(err);
+                process.exit(1);
+            });
+
+    } else {
+        codeAnalyzer({ cwd, 'baseDirectories': ['app', 'bin', 'lib', 'src'] })
+            .catch((err) => {
+                Logger.error('An error occured');
+                Logger.error(err);
+                process.exit(1);
+            });
+    }
 
 } else {
     Logger.error('Sorry, but package.json file was detected');
     Logger.error('For more details, please do codeanalyzer --help');
 }
-
-Logger.info('Welcome to the cli :)');
 
 

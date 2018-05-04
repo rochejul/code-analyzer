@@ -1,0 +1,17 @@
+    Usage
+      $ code-analyzer
+
+    Basically, if no option is provided, the tool will analyze the content of the folders:
+        - app
+        - bin
+        - lib
+        - src
+
+    Options
+      --help, -h  Display the documentation associated to this command
+      --init, -i  Display a prompter to setup the code analyzer for your project
+
+    Examples
+      $ code-analyzer
+      $ code-analyzer --help
+      $ code-analyzer --init
