@@ -4,12 +4,16 @@
 
 const fs = require('fs');
 const path = require('path');
+const { promisify } = require('util');
 
 const meow = require('meow');
 const inquirer = require('inquirer');
 const _ = require('lodash');
+const mkdirp = require('mkdirp');
 
 const codeAnalyzer = require('../lib');
+const mkdirpAsync = promisify(mkdirp);
+
 const Logger = require('../lib/logger');
 const FileUtils = require('../lib/utils/file');
 const ReportFormatEnum = require('../lib/enums/report-format');
@@ -45,9 +49,7 @@ if (FileUtils.hasPackageJsonFile(cwd)) {
                             'checked': false
                         };
                     }),
-                    'validate': function (inputs) {
-                        return !!(inputs && inputs.length > 0);
-                    }
+                    'validate': inputs => !!(inputs && inputs.length > 0)
                 },
                 {
                     'type': 'list',
@@ -55,9 +57,25 @@ if (FileUtils.hasPackageJsonFile(cwd)) {
                     'message': 'Please choose report format',
                     'default': 'console',
                     'choices': _.map(ReportFormatEnum, (value) => value)
+                },
+                {
+                    'type': 'input',
+                    'name': 'reportPath',
+                    'message': 'Please specify the path for your report',
+                    'when': response => response.reportFormat === ReportFormatEnum.HTML
                 }
             ])
-            .then(options => codeAnalyzer({ cwd, 'baseDirectories': options.baseDirectories, 'reportFormat': options.reportFormat }))
+            .then(options => {
+                let reportPath = options.reportPath ? path.resolve(path.join(cwd, options.reportPath)) : undefined;
+                let promise = Promise.resolve();
+
+                if (reportPath) {
+                    promise =  mkdirpAsync(path.dirname(reportPath));
+                }
+
+                return promise
+                    .then(() => codeAnalyzer({ cwd, 'baseDirectories': options.baseDirectories, 'reportFormat': options.reportFormat, reportPath }));
+            })
             .catch((err) => {
                 Logger.error('An error occured');
                 Logger.error(err);
