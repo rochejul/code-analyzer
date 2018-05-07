@@ -3,62 +3,146 @@
     <head>
         <meta charset="UTF-8">
         <title>Simple HTML report of <%- model.date %></title>
+        <style>
+            html,
+            body {
+                border: none;
+                height: 100%;
+                margin: 0 0 0 0;
+                padding: 0 0 0 0;
+                width: 100%;
+            }
+
+            :root {
+                /* https://material.io/color/#!/?view.left=0&view.right=0&primary.color=1976D2 */
+                --color-primary-dark: #004ba0;
+                --color-primary-light: #63a4ff;
+                --color-primary: #1976d2;
+                --color-primary-font: #ffffff;
+
+                /* https://material.io/color/#!/?view.left=0&view.right=0&primary.color=E0E0E0 */
+                --color-secondary-dark: #aeaeae;
+                --color-secondary-light: #ffffff;
+                --color-secondary: #e0e0e0;
+                --color-secondary-font: #000000;
+            }
+
+            .report__section {
+                border: 3px solid var(--color-primary-dark);
+                box-shadow: var(--color-primary-light) 4px 3px 6px 0px;
+                margin: 1vh 2.5vw;
+            }
+
+            .report__section__title {
+                background-color: var(--color-primary);
+                color: var(--color-primary-font);
+                font-size: 1.5rem;
+                font-weight: bolder;
+                padding: 0.5rem;
+                text-transform: uppercase;
+            }
+
+            .report__section__global {
+                background-color: var(--color-secondary);
+                border-bottom: 3px solid var(--color-secondary-dark);
+                color: var(--color-secondary-font);
+                margin: 0 0 0 0;
+                padding: 1rem 3rem 2rem 3rem;
+            }
+
+            .report__section__global__entry__label {
+                display: inline-block;
+                width: 200px;
+            }
+
+            .report__section__global__entry__value {
+                font-weight: bolder;
+            }
+
+            .report__section__messages--align-center {
+                text-align: center;
+            }
+
+            .report__section__messages--align-left {
+                text-align: left;
+            }
+
+            .report__section__messages__column--filepath {
+                width: 25vw;
+            }
+
+            .report__section__messages__column--level {
+                width: 5vw;
+            }
+
+            .report__section__messages__column--line {
+                width: 5vw;
+            }
+
+            .report__section__messages__column--column {
+                width: 5vw;
+            }
+
+            .report__section__messages__column--message {
+                width: 40vw;
+            }
+
+            .report__section__messages__column--rule {
+                width: 15vw;
+            }
+        </style>
     </head>
 
-    <body>
+    <body class="report">
         <% model.reports.forEach(function(reportEntry){ %>
-        <fieldset>
-            <legend><%- reportEntry.type %> report</legend>
+        <section class="report__section">
+            <header class="report__section__title"><%- reportEntry.type %> report</header>
 
-            <ul>
-                <li>
-                    <span>Nb files:</span>
-                    <span><%- reportEntry.report.global.nbFiles %></span>
+            <ul class="report__section__global">
+                <li class="report__section__global__entry">
+                    <span class="report__section__global__entry__label">Nb files:</span>
+                    <span class="report__section__global__entry__value"><%- reportEntry.report.global.nbFiles %></span>
                 </li>
-                <li>
-                    <span>Nb lines:</span>
-                    <span><%- reportEntry.report.global.nbLines %></span>
+                <li class="report__section__global__entry">
+                    <span class="report__section__global__entry__label">Nb lines:</span>
+                    <span class="report__section__global__entry__value"><%- reportEntry.report.global.nbLines %></span>
                 </li>
-                <li>
-                    <span>Nb errors:</span>
-                    <span><%- reportEntry.report.global.nbErrors %></span>
+                <li class="report__section__global__entry">
+                    <span class="report__section__global__entry__label">Nb errors:</span>
+                    <span class="report__section__global__entry__value"><%- reportEntry.report.global.nbErrors %></span>
                 </li>
-                <li>
-                    <span>Nb warnings:</span>
-                    <span><%- reportEntry.report.global.nbWarnings %></span>
+                <li class="report__section__global__entry">
+                    <span class="report__section__global__entry__label">Nb warnings:</span>
+                    <span class="report__section__global__entry__value"><%- reportEntry.report.global.nbWarnings %></span>
                 </li>
             </ul>
 
-            <br />
-            <hr />
-            <br />
-
-            <table>
+            <table class="report__section__messages">
                 <thead>
                     <tr>
-                        <th>File path</th>
-                        <th>Level</th>
-                        <th>Line</th>
-                        <th>Column</th>
-                        <th>Message</th>
-                        <th>Rule</th>
+                        <th class="report__section__messages__column--filepath report__section__messages--align-left">File path</th>
+                        <th class="report__section__messages__column--level report__section__messages--align-center">Level</th>
+                        <th class="report__section__messages__column--line report__section__messages--align-center">Line</th>
+                        <th class="report__section__messages__column--column report__section__messages--align-center">Column</th>
+                        <th class="report__section__messages__column--message report__section__messages--align-left">Message</th>
+                        <th class="report__section__messages__column--rule report__section__messages--align-center">Rule</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <% reportEntry.report.messages.forEach(function(message){ %>
-                    <tr>
-                        <td><%- message.fileRelativePath %></td>
-                        <td><%- message.level %></td>
-                        <td><%- message.line %></td>
-                        <td><%- message.column %></td>
-                        <td><%- message.message %></td>
-                        <td><%- message.ruleId %></td>
+                    <tr  class="report__section__messages__row">
+                        <td class="report__section__messages__column--filepath report__section__messages--align-left"><%- message.fileRelativePath %></td>
+                        <td class="report__section__messages__column--level report__section__messages--align-center"><%- message.level %></td>
+                        <td class="report__section__messages__column--line report__section__messages--align-center"><%- message.line %></td>
+                        <td class="report__section__messages__column--column report__section__messages--align-center"><%- message.column %></td>
+                        <td class="report__section__messages__column--message report__section__messages--align-left"><%- message.message %></td>
+                        <td class="report__section__messages__column--rule report__section__messages--align-center"><%- message.ruleId %></td>
                     </tr>
                     <% }); %>
                 </tbody>
             </table>
-        </fieldset>
+        </section>
         <% }); %>
     </body>
 </html>
