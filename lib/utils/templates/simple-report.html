@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simple HTML report of <%- model.date %></title>
+    </head>
+
+    <body>
+        <% model.reports.forEach(function(reportEntry){ %>
+        <fieldset>
+            <legend><%- reportEntry.type %> report</legend>
+
+            <ul>
+                <li>
+                    <span>Nb files:</span>
+                    <span><%- reportEntry.report.global.nbFiles %></span>
+                </li>
+                <li>
+                    <span>Nb lines:</span>
+                    <span><%- reportEntry.report.global.nbLines %></span>
+                </li>
+                <li>
+                    <span>Nb errors:</span>
+                    <span><%- reportEntry.report.global.nbErrors %></span>
+                </li>
+                <li>
+                    <span>Nb warnings:</span>
+                    <span><%- reportEntry.report.global.nbWarnings %></span>
+                </li>
+            </ul>
+
+            <br />
+            <hr />
+            <br />
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>File path</th>
+                        <th>Level</th>
+                        <th>Line</th>
+                        <th>Column</th>
+                        <th>Message</th>
+                        <th>Rule</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% reportEntry.report.messages.forEach(function(message){ %>
+                    <tr>
+                        <td><%- message.fileRelativePath %></td>
+                        <td><%- message.level %></td>
+                        <td><%- message.line %></td>
+                        <td><%- message.column %></td>
+                        <td><%- message.message %></td>
+                        <td><%- message.ruleId %></td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </fieldset>
+        <% }); %>
+    </body>
+</html>

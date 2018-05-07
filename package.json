@@ -48,6 +48,7 @@
   "dependencies": {
     "cli-table": "0.3.1",
     "count-lines-in-file": "1.1.0",
+    "ejs": "2.6.1",
     "eslint": "4.19.1",
     "eslint-config-eslint": "4.0.0",
     "eslint-plugin-node": "6.0.1",
