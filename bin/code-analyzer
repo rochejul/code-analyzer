@@ -10,15 +10,19 @@ const meow = require('meow');
 const inquirer = require('inquirer');
 const _ = require('lodash');
 const mkdirp = require('mkdirp');
+const cosmiconfig = require('cosmiconfig');
 
 const codeAnalyzer = require('../lib');
 const mkdirpAsync = promisify(mkdirp);
+const writeFileAsync = promisify(fs.writeFile);
+const explorer = cosmiconfig('code-analyzer');
 
 const Logger = require('../lib/logger');
 const FileUtils = require('../lib/utils/file');
 const ReportFormatEnum = require('../lib/enums/report-format');
 
 let cwd = process.cwd();
+let searchedFor = explorer.searchSync();
 
 if (FileUtils.hasPackageJsonFile(cwd)) {
     const cli = meow(
@@ -49,20 +53,27 @@ if (FileUtils.hasPackageJsonFile(cwd)) {
                             'checked': false
                         };
                     }),
+                    'default': searchedFor && searchedFor.config ? searchedFor.config.baseDirectories : null,
                     'validate': inputs => !!(inputs && inputs.length > 0)
                 },
                 {
                     'type': 'list',
                     'name': 'reportFormat',
                     'message': 'Please choose report format',
-                    'default': 'console',
+                    'default': searchedFor && searchedFor.config ? searchedFor.config.reportFormat : ReportFormatEnum.CONSOLE,
                     'choices': _.map(ReportFormatEnum, (value) => value)
                 },
                 {
                     'type': 'input',
                     'name': 'reportPath',
                     'message': 'Please specify the path for your report',
+                    'default': searchedFor && searchedFor.config ? searchedFor.config.reportPath : null,
                     'when': response => response.reportFormat !== ReportFormatEnum.CONSOLE
+                },
+                {
+                    'type': 'confirm',
+                    'name': 'saveConfig',
+                    'message': 'Do you want to persist your configuration?'
                 }
             ])
             .then(options => {
@@ -71,6 +82,15 @@ if (FileUtils.hasPackageJsonFile(cwd)) {
 
                 if (reportPath) {
                     promise =  mkdirpAsync(path.dirname(reportPath));
+                }
+
+                if (options.saveConfig) {
+                    promise = promise.then(() => {
+                        return writeFileAsync(
+                            path.resolve(path.join(cwd, './.code-analyzerrc')),
+                            JSON.stringify({ 'baseDirectories': options.baseDirectories, 'reportFormat': options.reportFormat, 'reportPath': options.reportPath }, null, 3)
+                        );
+                    });
                 }
 
                 return promise
@@ -83,7 +103,16 @@ if (FileUtils.hasPackageJsonFile(cwd)) {
             });
 
     } else {
-        codeAnalyzer({ cwd, 'baseDirectories': ['app', 'bin', 'lib', 'src'] })
+        let baseConfiguration = searchedFor && searchedFor.config ? searchedFor.config : { 'baseDirectories': ['app', 'bin', 'lib', 'src'] };
+        let reportPath = searchedFor && searchedFor.config && searchedFor.config.reportPath ? path.resolve(path.join(cwd, searchedFor.config.reportPath)) : undefined;
+        let promise = Promise.resolve();
+
+        if (reportPath) {
+            promise =  mkdirpAsync(path.dirname(reportPath));
+        }
+
+        promise
+            .then(() => codeAnalyzer(Object.assign(baseConfiguration, { cwd, reportPath })))
             .catch((err) => {
                 Logger.error('An error occured');
                 Logger.error(err);

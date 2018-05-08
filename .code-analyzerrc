@@ -1,0 +1,7 @@
+{
+   "baseDirectories": [
+      "lib"
+   ],
+   "reportFormat": "html",
+   "reportPath": "./target/code-analyzer-report.html"
+}

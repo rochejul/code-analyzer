@@ -9,9 +9,11 @@
 
     Options
       --help, -h  Display the documentation associated to this command
-      --init, -i  Display a prompter to setup the code analyzer for your project
+      --init, -i  Display a prompter to setup the code analyzer for your project. If you have persisted the configuration, you could reuse it to edit it
+      --version   Display the version of the tool
 
     Examples
       $ code-analyzer
       $ code-analyzer --help
       $ code-analyzer --init
+      $ code-analyzer --version
