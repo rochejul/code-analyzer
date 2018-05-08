@@ -62,7 +62,7 @@ if (FileUtils.hasPackageJsonFile(cwd)) {
                     'type': 'input',
                     'name': 'reportPath',
                     'message': 'Please specify the path for your report',
-                    'when': response => response.reportFormat === ReportFormatEnum.HTML
+                    'when': response => response.reportFormat !== ReportFormatEnum.CONSOLE
                 }
             ])
             .then(options => {
