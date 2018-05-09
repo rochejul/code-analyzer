@@ -1,7 +1,14 @@
 {
-    "force-preid": false,
+    "force-preid": true,
     "nogit-commit": false,
-    "nogit-tag": true,
-    "git-push": false,
-    "increment": "minor"
+    "nogit-tag": false,
+    "git-push": true,
+    "git-create-branch": false,
+    "git-branch-message": "releases/%s",
+    "git-commit-message": "Release version: %s",
+    "git-remote-name": "origin",
+    "git-tag-message": "v%s",
+    "increment": "patch",
+    "jsonFiles": [
+    ]
 }
