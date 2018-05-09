@@ -2,11 +2,11 @@
 
 Tool to provide a static code analyzing of your application, based on standard or classical linter configuration
 
-[![NPM version](https://badge.fury.io/js/code-analyzer.svg)](http://badge.fury.io/js/code-analyzer)
+[![NPM version](https://badge.fury.io/js/code-analyzer.svg)](http://badge.fury.io/js/node-code-analyzer)
 [![Build Status](https://travis-ci.org/rochejul/code-analyzer.svg?branch=master)](https://travis-ci.org/rochejul/code-analyzer)[![Dependency Status](https://david-dm.org/rochejul/code-analyzer.svg)](https://david-dm.org/rochejul/code-analyzer)
 [![dependencies Status](https://david-dm.org/rochejul/code-analyzer/status.svg)](https://david-dm.org/rochejul/code-analyzer)
 [![devDependency Status](https://david-dm.org/rochejul/code-analyzer/dev-status.svg)](https://david-dm.org/rochejul/code-analyzer#info=devDependencies)
-[![NPM Downloads](https://img.shields.io/npm/dm/code-analyzer.svg)](https://www.npmjs.org/package/code-analyzer)
+[![NPM Downloads](https://img.shields.io/npm/dm/code-analyzer.svg)](https://www.npmjs.org/package/node-code-analyzer)
 [![Known Vulnerabilities](https://snyk.io/test/github/rochejul/code-analyzer/badge.svg)](https://snyk.io/test/github/rochejul/code-analyzer)
 
 # How to install it?
