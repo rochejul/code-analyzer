@@ -14,7 +14,7 @@ Tool to provide a static code analyzing of your application, based on standard o
 ## Globally
 
 ````
-> npm install -g code-analyser
+> npm install -g node-code-analyser
 ````
 
 And to run it:
@@ -26,7 +26,7 @@ And to run it:
 ## Locally
 
 ````
-> npm install --save-dev --save-exact code-analyser
+> npm install --save-dev --save-exact node-code-analyser
 ````
 
 Extends your package.json like so:
@@ -34,7 +34,7 @@ Extends your package.json like so:
 ````json
 {
   "scripts": {
-    "analyze": "node .node_modules/code-analyzer/bin/code-analyzer"
+    "analyze": "node ./node_modules/node-code-analyzer/bin/code-analyzer"
   }
 }
 ````

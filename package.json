@@ -1,5 +1,5 @@
 {
-  "name": "code-analyzer",
+  "name": "node-code-analyzer",
   "version": "0.0.1",
   "description": "Tool to provide a static code analyzing of your application, based on standard or classical linter configuration",
   "main": "./lib/index.js",
