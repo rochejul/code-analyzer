@@ -20,6 +20,7 @@ const explorer = cosmiconfig('code-analyzer');
 const Logger = require('../lib/logger');
 const FileUtils = require('../lib/utils/file');
 const ReportFormatEnum = require('../lib/enums/report-format');
+const baseDirectoriesConstants = require('../lib/constants/base-repositories');
 
 let cwd = process.cwd();
 let searchedFor = explorer.searchSync();
@@ -103,7 +104,7 @@ if (FileUtils.hasPackageJsonFile(cwd)) {
             });
 
     } else {
-        let baseConfiguration = searchedFor && searchedFor.config ? searchedFor.config : { 'baseDirectories': ['app', 'bin', 'lib', 'src'] };
+        let baseConfiguration = searchedFor && searchedFor.config ? searchedFor.config : { 'baseDirectories': baseDirectoriesConstants };
         let reportPath = searchedFor && searchedFor.config && searchedFor.config.reportPath ? path.resolve(path.join(cwd, searchedFor.config.reportPath)) : undefined;
         let promise = Promise.resolve();
 
