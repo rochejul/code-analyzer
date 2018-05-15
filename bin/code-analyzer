@@ -97,6 +97,9 @@ if (FileUtils.hasPackageJsonFile(cwd)) {
                 return promise
                     .then(() => codeAnalyzer({ cwd, 'baseDirectories': options.baseDirectories, 'reportFormat': options.reportFormat, reportPath }));
             })
+            .then(reportPath => {
+                reportPath && Logger.info(`File report was generated to: ${reportPath}`);
+            })
             .catch((err) => {
                 Logger.error('An error occured');
                 Logger.error(err);
@@ -114,6 +117,9 @@ if (FileUtils.hasPackageJsonFile(cwd)) {
 
         promise
             .then(() => codeAnalyzer(Object.assign(baseConfiguration, { cwd, reportPath })))
+            .then(reportPath => {
+                reportPath && Logger.info(`File report was generated to: ${reportPath}`);
+            })
             .catch((err) => {
                 Logger.error('An error occured');
                 Logger.error(err);
