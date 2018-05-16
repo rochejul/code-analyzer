@@ -1,4 +1,10 @@
 {
-  "testRegex": ".*-test\\.js$",
-  "testEnvironment": "node"
+    "testRegex": ".*-test\\.js$",
+    "testEnvironment": "node",
+    "coverageDirectory": "./target/coverage/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+        "bin/**/*.{js,jsx}",
+        "lib/**/*.{js,jsx}"
+    ]
 }

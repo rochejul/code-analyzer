@@ -8,6 +8,7 @@ Tool to provide a static code analyzing of your application, based on standard o
 [![devDependency Status](https://david-dm.org/rochejul/code-analyzer/dev-status.svg)](https://david-dm.org/rochejul/code-analyzer#info=devDependencies)
 [![NPM Downloads](https://img.shields.io/npm/dm/code-analyzer.svg)](https://www.npmjs.org/package/node-code-analyzer)
 [![Known Vulnerabilities](https://snyk.io/test/github/rochejul/code-analyzer/badge.svg)](https://snyk.io/test/github/rochejul/code-analyzer)
+[![codecov](https://codecov.io/gh/rochejul/code-analyzer/branch/master/graph/badge.svg)](https://codecov.io/gh/rochejul/code-analyzer)
 
 # How to install it?
 
