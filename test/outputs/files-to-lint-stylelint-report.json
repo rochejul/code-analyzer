@@ -1,9 +1,5 @@
 {
     "errored": true,
-    "output": "[{\"source\":\"C:\\\\Dev\\\\Git\\\\Github\\\\code-analyzer\\\\test\\\\files-to-lint\\\\sample.less\",\"deprecations\":[],\"invalidOptionWarnings\":[],\"parseErrors\":[],\"errored\":true,\"warnings\":[{\"line\":2,\"column\":25,\"rule\":\"block-opening-
-    brace-space-before\",\"severity\":\"error\",\"text\":\"Expected single space before \\\"{\\\" (block-opening-brace-space-before)\"},{\"line\":5,\"column\":8,\"rule\":\"declaration-empty-line-before\",\"severity\":\"error\",\"text\":\"Unexpected empty line before de
-    claration (declaration-empty-line-before)\"},{\"line\":3,\"column\":5,\"rule\":\"indentation\",\"severity\":\"error\",\"text\":\"Expected indentation of 2 spaces (indentation)\"},{\"line\":5,\"column\":8,\"rule\":\"indentation\",\"severity\":\"error\",\"text\":\"Ex
-    pected indentation of 2 spaces (indentation)\"},{\"line\":2,\"column\":10,\"rule\":\"selector-list-comma-newline-after\",\"severity\":\"error\",\"text\":\"Expected newline after \\\",\\\" (selector-list-comma-newline-after)\"}]}]",
     "results": [
         {
             "source": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.less",
