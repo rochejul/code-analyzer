@@ -1,6 +1,6 @@
 {
   "name": "node-code-analyzer",
-  "version": "0.0.2-beta.3",
+  "version": "0.0.2-beta.4",
   "description": "Tool to provide a static code analyzing of your application, based on standard or classical linter configuration",
   "main": "./lib/index.js",
   "files": [
