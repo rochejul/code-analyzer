@@ -10,7 +10,6 @@ Tool to provide a static code analyzing of your application, based on standard o
 [![Known Vulnerabilities](https://snyk.io/test/github/rochejul/code-analyzer/badge.svg)](https://snyk.io/test/github/rochejul/code-analyzer)
 [![codecov](https://codecov.io/gh/rochejul/code-analyzer/branch/master/graph/badge.svg)](https://codecov.io/gh/rochejul/code-analyzer)
 [![bitHound Code](https://www.bithound.io/github/rochejul/code-analyzer/badges/code.svg)](https://www.bithound.io/github/rochejul/code-analyzer)
-[![bitHound Overall Score](https://www.bithound.io/github/rochejul/code-analyzer/badges/score.svg)](https://www.bithound.io/github/rochejul/code-analyzer)
 
 # How to install it?
 
