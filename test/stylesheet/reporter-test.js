@@ -7,20 +7,20 @@ describe('styleSheet - CodeReporter ', () => {
     });
 
     it('should return an appropriate report format', () => {
-        let cwd = path.resolve(path.join(__dirname, '../files-to-lint'));
+        let cwd = path.resolve(path.join(__dirname, '../'));
         let promise = styleSheetCodeReporter(
-            require('../outputs/files-to-lint-stylelint-report.json'),
+            require('../outputs/files-to-lint-stylelint-report'),
             {
                 cwd,
                 files: [
-                    path.resolve(path.join(cwd, 'sample.less'))
+                    path.resolve(path.join(cwd, './files-to-lint/sample.less'))
                 ]
             }
         );
 
         return promise
             .then(report => {
-               expect(report).toEqual(require('./report-sample.json'));
+               expect(report).toEqual(require('./report-sample'));
             });
     });
 });
