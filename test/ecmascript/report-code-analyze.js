@@ -1,4 +1,13 @@
-{
+'use strict';
+
+const path = require('path');
+
+const cwd = path.resolve(path.join(__dirname, '../'));
+const targetedFolder = path.resolve(path.join(cwd, './files-to-lint'));
+const sampleJsFilePath = path.resolve(path.join(targetedFolder, './sample.js'));
+const sampleJsRelativeFilePath = path.relative(cwd, sampleJsFilePath);
+
+module.exports = Object.freeze({
     "global": {
         "nbErrors": 11,
         "nbFiles": 1,
@@ -10,8 +19,8 @@
             "column": 1,
             "endColumn": 2,
             "endLine": 6,
-            "filePath": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.js",
-            "fileRelativePath": "sample.js",
+            "filePath": sampleJsFilePath,
+            "fileRelativePath": sampleJsRelativeFilePath,
             "level": "error",
             "line": 2,
             "message": "Missing JSDoc comment.",
@@ -21,8 +30,8 @@
             "column": 1,
             "endColumn": 2,
             "endLine": 6,
-            "filePath": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.js",
-            "fileRelativePath": "sample.js",
+            "filePath": sampleJsFilePath,
+            "fileRelativePath": sampleJsRelativeFilePath,
             "level": "error",
             "line": 2,
             "message": "Use the global form of 'use strict'.",
@@ -32,8 +41,8 @@
             "column": 10,
             "endColumn": 21,
             "endLine": 2,
-            "filePath": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.js",
-            "fileRelativePath": "sample.js",
+            "filePath": sampleJsFilePath,
+            "fileRelativePath": sampleJsRelativeFilePath,
             "level": "error",
             "line": 2,
             "message": "'aFakeMethod' is defined but never used.",
@@ -41,8 +50,8 @@
         },
         {
             "column": 21,
-            "filePath": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.js",
-            "fileRelativePath": "sample.js",
+            "filePath": sampleJsFilePath,
+            "fileRelativePath": sampleJsRelativeFilePath,
             "level": "error",
             "line": 2,
             "message": "Unexpected space before function parentheses.",
@@ -52,8 +61,8 @@
             "column": 31,
             "endColumn": 37,
             "endLine": 2,
-            "filePath": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.js",
-            "fileRelativePath": "sample.js",
+            "filePath": sampleJsFilePath,
+            "fileRelativePath": sampleJsRelativeFilePath,
             "level": "error",
             "line": 2,
             "message": "'param2' is defined but never used.",
@@ -61,8 +70,8 @@
         },
         {
             "column": 38,
-            "filePath": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.js",
-            "fileRelativePath": "sample.js",
+            "filePath": sampleJsFilePath,
+            "fileRelativePath": sampleJsRelativeFilePath,
             "level": "error",
             "line": 2,
             "message": "There should be no spaces inside this paren.",
@@ -72,8 +81,8 @@
             "column": 5,
             "endColumn": 9,
             "endLine": 3,
-            "filePath": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.js",
-            "fileRelativePath": "sample.js",
+            "filePath": sampleJsFilePath,
+            "fileRelativePath": sampleJsRelativeFilePath,
             "level": "error",
             "line": 3,
             "message": "'_var' is not defined.",
@@ -81,8 +90,8 @@
         },
         {
             "column": 11,
-            "filePath": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.js",
-            "fileRelativePath": "sample.js",
+            "filePath": sampleJsFilePath,
+            "fileRelativePath": sampleJsRelativeFilePath,
             "level": "error",
             "line": 4,
             "message": "Missing semicolon.",
@@ -92,8 +101,8 @@
             "column": 1,
             "endColumn": 9,
             "endLine": 5,
-            "filePath": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.js",
-            "fileRelativePath": "sample.js",
+            "filePath": sampleJsFilePath,
+            "fileRelativePath": sampleJsRelativeFilePath,
             "level": "error",
             "line": 5,
             "message": "Expected indentation of 4 spaces but found 8.",
@@ -103,8 +112,8 @@
             "column": 9,
             "endColumn": 13,
             "endLine": 5,
-            "filePath": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.js",
-            "fileRelativePath": "sample.js",
+            "filePath": sampleJsFilePath,
+            "fileRelativePath": sampleJsRelativeFilePath,
             "level": "error",
             "line": 5,
             "message": "'_var' is not defined.",
@@ -114,12 +123,12 @@
             "column": 9,
             "endColumn": 14,
             "endLine": 5,
-            "filePath": "C:\\Dev\\Git\\Github\\code-analyzer\\test\\files-to-lint\\sample.js",
-            "fileRelativePath": "sample.js",
+            "filePath": sampleJsFilePath,
+            "fileRelativePath": sampleJsRelativeFilePath,
             "level": "error",
             "line": 5,
             "message": "Expected an assignment or function call and instead saw an expression.",
             "ruleId": "no-unused-expressions"
         }
     ]
-}
+});

@@ -9,8 +9,8 @@ describe('ReportUtils ', () => {
         jest.spyOn(Date.prototype, 'toLocaleString').mockImplementation(() => '2018-5-16 21:53:04');
 
         reportEntries = [
-            { 'type': ReportTypeEnum.ECMASCRIPT, 'report': require('../ecmascript/report-code-analyze.json') },
-            { 'type': ReportTypeEnum.STYLESHEET, 'report': require('../stylesheet/report-code-analyze.json') }
+            { 'type': ReportTypeEnum.ECMASCRIPT, 'report': require('../ecmascript/report-code-analyze.js') },
+            { 'type': ReportTypeEnum.STYLESHEET, 'report': require('../stylesheet/report-code-analyze.js') }
         ];
     });
 
@@ -27,7 +27,7 @@ describe('ReportUtils ', () => {
             return ReportUtils
                 .getReportFormat(reportEntries)
                 .then(report => {
-                    expect(report).toEqual(require('./getReportFormat.json'));
+                    expect(report).toEqual(require('./getReportFormat.js'));
                 });
         });
     });
