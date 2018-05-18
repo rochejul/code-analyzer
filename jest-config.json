@@ -4,6 +4,7 @@
     "coverageDirectory": "./target/coverage/",
     "collectCoverage": true,
     "collectCoverageFrom": [
+        "bin/code-analyzer",
         "bin/**/*.{js,jsx}",
         "lib/**/*.{js,jsx}"
     ]
